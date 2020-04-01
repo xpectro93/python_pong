@@ -10,7 +10,7 @@ wn.bgcolor('black')
 wn.setup(width=800, height=600)
 
 #stops window from manually updating/ so we can update it at w.e rate we want
-wn.tracer(2)
+# wn.tracer(2)
 
 # paddle_a 
 
@@ -107,7 +107,22 @@ while True:
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
 
-    #Border check
-    if ball.ycor() >= 300:
-        ball.setx(0)
-        ball.sety(0)
+    #BORDER CHECK
+    #top border
+    if ball.ycor() >= 290:
+        ball.sety(290)
+        #reverses direction of ball
+        ball.dy *=-1
+    #bottom border
+    if ball.ycor() <= -290:
+        ball.sety(-290)
+        ball.dy *=-1
+    
+    #right border
+    if ball.xcor() > 390:
+        ball.goto(0, 0)
+        ball.dx *= -1
+    #left border
+    if ball.xcor() > 390:
+        ball.goto(0, 0)
+        ball.dx *= -1
