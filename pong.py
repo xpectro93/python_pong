@@ -12,7 +12,7 @@ wn.setup(width=800, height=600)
 #stops window from manually updating/ so we can update it at w.e rate we want
 # wn.tracer(2)
 
-# paddle_a 
+#PADDLE_A
 
 #import new instance of Turtle class
 paddle_a = turtle.Turtle()
@@ -35,7 +35,7 @@ paddle_a.goto(-350, 0)
 
 
 
-# paddle_b
+#PADDLE_B
 paddle_b = turtle.Turtle()
 
 paddle_b.speed(0)
@@ -46,7 +46,7 @@ paddle_b.penup()
 paddle_b.goto(350, 0)
 
 
-# ball 
+#BALL
 ball =turtle.Turtle()
 ball.speed(0)
 ball.shape('circle')
@@ -60,6 +60,16 @@ ball.dy = 2
 #change in x
 # move 2 pixels right 
 ball.dx = 2
+
+
+#PEN
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color('white')
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 260)
+pen.write('Player A: 0  Player B: 0', align='center', font=('Courier', 24, "normal") )
 
 
 #FUNCTIONS FOR PADDLE_A
