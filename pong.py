@@ -10,7 +10,14 @@ wn.bgcolor('black')
 wn.setup(width=800, height=600)
 
 #stops window from manually updating/ so we can update it at w.e rate we want
-# wn.tracer(2)
+# wn.tracer(0)
+
+
+#SCORE 
+score_a = 0
+score_b = 0
+
+
 
 #PADDLE_A
 
@@ -132,10 +139,17 @@ while True:
     if ball.xcor() > 390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score_a += 1
+        pen.clear()
+        pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align='center', font=('Courier', 24, "normal") )
+
     #left border
-    if ball.xcor() > 390:
+    if ball.xcor() < -390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score_b += 1
+        pen.clear()
+        pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align='center', font=('Courier', 24, "normal") )
     
     #PADDLE AND BALL COLLISION
 
