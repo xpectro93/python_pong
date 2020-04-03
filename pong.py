@@ -1,5 +1,8 @@
 import turtle
 
+#windows sound module
+import winsound
+
 wn = turtle.Screen()
 wn.title('Pong by DonJon')
 wn.bgcolor('black')
@@ -130,10 +133,17 @@ while True:
         ball.sety(290)
         #reverses direction of ball
         ball.dy *=-1
+
+        #async sound so it doesnt stop while sound plays
+        winsound.PlaySound("bounce.wav", winsound.SND_ASYNC)
+
+
     #bottom border
     if ball.ycor() <= -290:
         ball.sety(-290)
         ball.dy *=-1
+        winsound.PlaySound("bounce.wav", winsound.SND_ASYNC)
+
     
     #right border
     if ball.xcor() > 390:
@@ -159,6 +169,8 @@ while True:
     if coll_ax and coll_ay:
         ball.setx(340)
         ball.dx *= -1
+        winsound.PlaySound("bounce.wav", winsound.SND_ASYNC)
+
 
     coll_bx = ball.xcor() < -340 and ball.xcor() > -350
     coll_by = ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() -40
@@ -166,3 +178,4 @@ while True:
     if coll_bx and coll_by:
         ball.setx(-340)
         ball.dx *= -1
+        winsound.PlaySound("bounce.wav", winsound.SND_ASYNC)
